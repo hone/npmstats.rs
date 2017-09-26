@@ -4,6 +4,7 @@ version = "0.1.0"
 dependencies = [
  "chrono 0.4.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "docopt 0.8.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "gnuplot 0.0.22 (registry+https://github.com/rust-lang/crates.io-index)",
  "reqwest 0.7.3 (registry+https://github.com/rust-lang/crates.io-index)",
  "serde 1.0.15 (registry+https://github.com/rust-lang/crates.io-index)",
  "serde_derive 1.0.15 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -158,6 +159,11 @@ dependencies = [
  "futures 0.1.16 (registry+https://github.com/rust-lang/crates.io-index)",
  "num_cpus 1.6.2 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
+
+[[package]]
+name = "gnuplot"
+version = "0.0.22"
+source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "httparse"
@@ -827,6 +833,7 @@ dependencies = [
 "checksum foreign-types 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)" = "3e4056b9bd47f8ac5ba12be771f77a0dae796d1bbaaf5fd0b9c2d38b69b8a29d"
 "checksum futures 0.1.16 (registry+https://github.com/rust-lang/crates.io-index)" = "05a23db7bd162d4e8265968602930c476f688f0c180b44bdaf55e0cb2c687558"
 "checksum futures-cpupool 0.1.6 (registry+https://github.com/rust-lang/crates.io-index)" = "77d49e7de8b91b20d6fda43eea906637eff18b96702eb6b2872df8bfab1ad2b5"
+"checksum gnuplot 0.0.22 (registry+https://github.com/rust-lang/crates.io-index)" = "c37cb0149f34c62e6d0c5bf9a8c37ff8ff9d9f588ccff2aa76bd247c7ebbef97"
 "checksum httparse 1.2.3 (registry+https://github.com/rust-lang/crates.io-index)" = "af2f2dd97457e8fb1ae7c5a420db346af389926e36f43768b96f101546b04a07"
 "checksum hyper 0.11.2 (registry+https://github.com/rust-lang/crates.io-index)" = "641abc3e3fcf0de41165595f801376e01106bca1fd876dda937730e477ca004c"
 "checksum hyper-tls 0.1.2 (registry+https://github.com/rust-lang/crates.io-index)" = "9c81fa95203e2a6087242c38691a0210f23e9f3f8f944350bd676522132e2985"

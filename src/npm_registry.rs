@@ -36,16 +36,22 @@ impl NpmRegistry {
         }
     }
 
-    pub fn downloads(&self, module: &str) {
+    pub fn downloads(&self, module: &str) -> (Vec<String>, Vec<i32>) {
+        let mut dates = Vec::new();
+        let mut downloads = Vec::new();
         let today = Local::today();
         for year in 2015..today.year() + 1 {
             for month in 1..13 {
                 let npm_date = Local.ymd(year, month, 1);
                 if npm_date <= today {
-                    println!("{} {}: {}", year, month, self.monthly_downloads(module, month, year as u32));
+                    dates.push(format!("{}-{}", year, month));
+                    downloads.push(self.monthly_downloads(module, month, year as u32));
+                    //println!("{} {}: {}", year, month, self.monthly_downloads(module, month, year as u32));
                 }
             }
         }
+
+        (dates, downloads)
     }
 
     fn monthly_downloads(&self, module: &str, month: u32, year: u32) -> i32 {
