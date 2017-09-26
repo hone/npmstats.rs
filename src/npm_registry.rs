@@ -38,7 +38,7 @@ impl NpmRegistry {
 
     pub fn downloads(&self, module: &str) {
         let today = Local::today();
-        for year in 2015..2018 {
+        for year in 2015..today.year() + 1 {
             for month in 1..13 {
                 let npm_date = Local.ymd(year, month, 1);
                 if npm_date <= today {
