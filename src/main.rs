@@ -1,4 +1,3 @@
-extern crate chrono;
 extern crate gnuplot;
 #[macro_use]
 extern crate serde_derive;
@@ -9,9 +8,8 @@ mod npm_registry;
 use options::Options;
 use npm_registry::NpmRegistry;
 
-use chrono::prelude::*;
 use gnuplot::{AxesCommon, Figure, Caption, Color};
-use gnuplot::Tick::Major;
+use gnuplot::Tick::{Major, Minor};
 use gnuplot::AutoOption::Fix;
 
 fn main() {
@@ -21,10 +19,19 @@ fn main() {
         let colors = ["black", "red", "blue", "brown", "green"];
         let registry = NpmRegistry::new();
         let (dates, downloads) = registry.downloads(&options.arg_module);
-        let today = Local::today();
         // add year labels
-        let x_major = (2015..today.year() + 1).map(|year| {
-            Major(dates.binary_search(&format!("{}-{}", year, 1)).unwrap(), Fix(year.to_string()))
+        let mut date_index = -1;
+        let x_major = dates.iter().map(|date| {
+            let parts: Vec<&str> = date.split("-").collect();
+            let year = parts[0];
+            let month = parts[1];
+            date_index += 1;
+
+            if month == "1" {
+                Major(date_index, Fix(year.to_string()))
+            } else {
+                Minor(date_index)
+            }
         });
 
         let mut fg = Figure::new();
