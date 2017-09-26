@@ -6,13 +6,13 @@ const USAGE: &'static str = "
 NPM Download Stats.
 
 Usage:
-  npmstats downloads <module>
+  npmstats downloads <module>...
 ";
 
 #[derive(Debug, Deserialize)]
 pub struct Options {
     pub cmd_downloads: bool,
-    pub arg_module: String,
+    pub arg_module: Vec<String>,
 }
 
 impl Options {
