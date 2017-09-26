@@ -41,10 +41,11 @@ impl NpmRegistry {
         let mut dates = Vec::new();
         let mut downloads: HashMap<String, Vec<i32>> = HashMap::new();
         let today = Local::today();
+        let normalized_today = Local.ymd(today.year(), today.month(), 1);
         for year in 2015..today.year() + 1 {
             for month in 1..13 {
                 let npm_date = Local.ymd(year, month, 1);
-                if npm_date <= today {
+                if npm_date < normalized_today {
                     dates.push(format!("{}-{}", year, month));
                     let monthly = self.monthly_downloads(modules, month, year as u32);
                     for (module, download_count) in monthly {
