@@ -18,7 +18,7 @@ fn main() {
     let options = Options::new();
 
     if options.cmd_downloads {
-        let colors = ["black", "red", "blue", "brown", "yellow"];
+        let colors = ["black", "red", "blue", "brown", "green"];
         let registry = NpmRegistry::new();
         let (dates, downloads) = registry.downloads(&options.arg_module);
         let today = Local::today();
